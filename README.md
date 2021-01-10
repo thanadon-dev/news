@@ -1,4 +1,4 @@
-EP1 ออกแบบหน้าเว็บไซต์ด้วย Bootstrap
+# EP1 ออกแบบหน้าเว็บไซต์ด้วย Bootstrap
 ```css
 .card {
         font-weight: 400;
@@ -39,7 +39,49 @@ date
 ```
 
 
-# EP3 แสดงข้อมูลบนหน้าเว็บไซต์และ ทำระบบหมวดหมู่
+# EP3 จัดระเบียบโค้ดให้เรียบร้อยด้วยภาษา PHP
 ```php 
 
+    <?php
+
+        if ($_GET['page'] == "home") {
+            include('page/home.php');
+        } else if ($_GET['page'] == "register") {
+            include('page/register.php');
+        } else if ($_GET['page'] == "login") {
+            include('page/login.php');
+        } else if ($_GET['page'] == "detail") {
+            include('page/detail.php');
+        } else {
+            include('page/home.php');
+        }
+    ?>
+    
+    
+```
+
+# EP4 แสดงข้อมูลบนหน้าเว็บไซต์และ ทำระบบหมวดหมู่ 
+
+```php 
+        $sql = $pdo->prepare("SELECT * FROM news");
+        $sql->execute();
+        $result = $sql->fetchAll();
+        foreach ($result as $res){}
+    
+```
+
+
+# EP5 ออกแบบและ ทำระบบ Details เพื่อแสดงรายละเอียด
+
+```php 
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+
+$result = $pdo->query("SELECT * FROM news WHERE id = $id");
+while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
+        print_r($data);
+    }
+    
 ```
