@@ -85,3 +85,28 @@ while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
     }
     
 ```
+
+# EP6 POST ข้อความ
+```php 
+if ($_POST['action'] == "post") {
+
+    $id_group = $_POST['id_group'];
+    $image = $_POST['image'];
+    $title = $_POST['title'];
+    $detail = $_POST['detail'];
+
+    $sql = $pdo->prepare('INSERT INTO news (id_group, image, title, detail, date)
+    VALUES (:id_group, :image, :title, :detail, :date)');
+
+    $sql->execute([
+        'id_group' => $id_group,
+        'image' => $image,
+        'title' => $title,
+        'detail' => $detail,
+        'date' => date('H-i-s'),
+    ]);
+    echo "<script>
+            swal('โพสข้อความสำเร็จแล้วค่ะ', 'เยียยยยยยยยย', 'success');
+        </script>";
+}
+```
