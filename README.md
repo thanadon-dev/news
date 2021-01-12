@@ -60,7 +60,7 @@ date
     
 ```
 
-# EP4 แสดงข้อมูลบนหน้าเว็บไซต์และ ทำระบบหมวดหมู่ 
+# EP4 แสดงข้อมูลบนหน้าเว็บไซต์
 
 ```php 
         $sql = $pdo->prepare("SELECT * FROM news");
@@ -70,8 +70,11 @@ date
     
 ```
 
+# EP5 ทำระบบหมวดหมู่ 
 
-# EP5 ออกแบบและ ทำระบบ Details เพื่อแสดงรายละเอียด
+
+
+# EP6 ออกแบบและ ทำระบบ Details เพื่อแสดงรายละเอียด
 
 ```php 
 
@@ -86,7 +89,7 @@ while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
     
 ```
 
-# EP6 POST ข้อความ
+# EP7 POST ข้อความ
 ```php 
 if ($_POST['action'] == "post") {
 
